@@ -43,7 +43,9 @@ export default function Home() {
 
         {/* Value */}
         {isLoading ? (
-          <div className="text-8xl font-extrabold text-blue-500 animate-pulse">...</div>
+          <div className="text-8xl font-extrabold text-blue-500 animate-pulse">
+            ...
+          </div>
         ) : (
           <h2 className="text-8xl font-extrabold text-blue-500">{coinCount}</h2>
         )}
