@@ -37,19 +37,19 @@ export default function Home() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-black text-white">
-      <div className="flex flex-col items-center justify-center text-center space-y-10">
-        <h1 className="text-3xl font-bold">💰 Coin Counter</h1>
+      <div className="flex flex-col items-center text-center">
+        <h1 className="text-2xl mb-4">💰 Coin Counter</h1>
 
         {isLoading ? (
-          <div className="text-8xl font-extrabold text-blue-500 animate-pulse">...</div>
+          <div className="text-6xl font-bold text-blue-500 animate-pulse">...</div>
         ) : (
-          <h2 className="text-8xl font-extrabold text-blue-500">{coinCount}</h2>
+          <h2 className="text-6xl font-bold text-blue-500">{coinCount}</h2>
         )}
 
         <button
           onClick={resetCoins}
           disabled={isLoading}
-          className={`px-8 py-3 rounded-2xl shadow-lg text-lg font-semibold transition-all duration-200 ${
+          className={`mt-6 px-6 py-2 rounded-xl ${
             isLoading ? "bg-gray-600" : "bg-red-600 hover:bg-red-700"
           }`}
         >
