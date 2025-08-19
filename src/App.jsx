@@ -36,7 +36,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-black text-white">
+    <div className="w-screen h-screen flex items-center justify-center bg-black text-white">
       <div className="flex flex-col items-center justify-center text-center space-y-8">
         {/* Title */}
         <h1 className="text-3xl font-bold">💰 Coin Counter</h1>
