@@ -13,27 +13,19 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
 body {
   margin: 0;
   display: flex;
   justify-content: center; /* centers horizontally */
   align-items: center;     /* centers vertically */
-  min-width: 320px;
   height: 100vh;           /* full viewport height */
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 button {
@@ -55,15 +47,16 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px; /* space between number and button */
+  text-align: center;
+}
+
+.counter-value {
+  font-size: 2rem;
+  font-weight: bold;
 }
