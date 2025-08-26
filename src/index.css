@@ -25,9 +25,10 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  justify-content: center; /* centers horizontally */
+  align-items: center;     /* centers vertically */
   min-width: 320px;
-  height: 100vh; /* Changed from min-height to height */
+  height: 100vh;           /* full viewport height */
 }
 
 h1 {
