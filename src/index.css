@@ -21,11 +21,24 @@ body {
   height: 100vh;           /* full viewport height */
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px; /* spacing between items */
+  text-align: center;
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-  text-align: center;
-  margin-bottom: 20px;
+  margin: 0;
+}
+
+.counter-value {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
 }
 
 button {
@@ -36,6 +49,7 @@ button {
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
+  color: white;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -45,18 +59,4 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
-
-.center-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px; /* space between number and button */
-  text-align: center;
-}
-
-.counter-value {
-  font-size: 2rem;
-  font-weight: bold;
 }
