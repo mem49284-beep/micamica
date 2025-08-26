@@ -39,7 +39,17 @@ h1 {
   font-size: 2rem;
   font-weight: bold;
   margin: 0;
+
+  /* Center horizontally & vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Optional: give it full width to align properly */
+  width: 100%;
+  text-align: center;
 }
+
 
 button {
   border-radius: 8px;
