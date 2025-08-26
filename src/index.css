@@ -38,18 +38,10 @@ h1 {
 .counter-value {
   font-size: 2rem;
   font-weight: bold;
+  justify-content: center; /* centers horizontally */
+  align-items: center;     /* centers vertically */
   margin: 0;
-
-  /* Center horizontally & vertically */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  /* Optional: give it full width to align properly */
-  width: 100%;
-  text-align: center;
 }
-
 
 button {
   border-radius: 8px;
