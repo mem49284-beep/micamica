@@ -24,7 +24,8 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; /* centers everything inside */
+  justify-content: center;
   gap: 16px; /* spacing between items */
   text-align: center;
 }
@@ -38,8 +39,6 @@ h1 {
 .counter-value {
   font-size: 2rem;
   font-weight: bold;
-  justify-content: center; /* centers horizontally */
-  align-items: center;     /* centers vertically */
   margin: 0;
 }
 
