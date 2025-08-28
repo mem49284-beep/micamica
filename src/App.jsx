@@ -1,54 +1,49 @@
-"use client";
 import { useState, useEffect } from "react";
 import "./index.css";
 
-export default function Home() {
-  const [coinCount, setCoinCount] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
+export default function App() {
+  const [total, setTotal] = useState(0);
 
-  const fetchCoins = async () => {
+  // ✅ Fetch total coins from API
+  const fetchTotal = async () => {
     try {
-      const res = await fetch("/api/data", { cache: "no-store" });
+      const res = await fetch("https://micamica.vercel.app/api/coin");
+      if (!res.ok) throw new Error("Failed to fetch");
       const data = await res.json();
-      setCoinCount(data.coinCount);
-    } catch (err) {
-      console.error("Fetch error:", err);
-    } finally {
-      setIsLoading(false);
+      setTotal(data.total);
+    } catch (error) {
+      console.error("Error fetching total:", error);
     }
   };
 
-  const resetCoins = async () => {
-    setIsLoading(true);
+  // ✅ Reset total on API
+  const resetTotal = async () => {
     try {
-      await fetch("/api/data", { method: "DELETE" });
-      setCoinCount(0);
-    } catch (err) {
-      console.error("Reset error:", err);
-    } finally {
-      setIsLoading(false);
+      const res = await fetch("https://micamica.vercel.app/api/coin", {
+        method: "DELETE",
+      });
+      if (!res.ok) throw new Error("Failed to reset");
+      const data = await res.json();
+      setTotal(data.total);
+    } catch (error) {
+      console.error("Error resetting total:", error);
     }
   };
 
   useEffect(() => {
-    fetchCoins();
-    const interval = setInterval(fetchCoins, 2000);
-    return () => clearInterval(interval);
+    fetchTotal(); // fetch once on load
+
+    // fetch every 2 seconds
+    const interval = setInterval(fetchTotal, 2000);
+
+    return () => clearInterval(interval); // cleanup
   }, []);
 
   return (
     <div className="container">
-      <h1>💰 Coin Counter</h1>
-
-      {isLoading ? (
-        <p className="counter-value">...</p>
-      ) : (
-        <p className="counter-value">{coinCount}</p>
-      )}
-
-      <button onClick={resetCoins} disabled={isLoading}>
-        {isLoading ? "Processing..." : "Reset"}
-      </button>
+      <h1>Coin Counter</h1>
+      <p className="counter-value">{total}</p>
+      <button onClick={resetTotal}>Reset</button>
     </div>
   );
 }
