@@ -5,7 +5,7 @@ function App() {
 
   // Fetch latest coin total from backend
   useEffect(() => {
-    fetch("https://micamica-3xrzngskd-coldies-projects.vercel.app/api/data")
+    fetch("https://micamica.vercel.app/api/data")
       .then((res) => res.json())
       .then((data) => {
         setCount(data.total);
@@ -14,7 +14,7 @@ function App() {
 
     // Auto-refresh every 5 seconds
     const interval = setInterval(() => {
-      fetch("https://micamica-3xrzngskd-coldies-projects.vercel.app/api/data")
+      fetch("https://micamica.vercel.app/api/data")
         .then((res) => res.json())
         .then((data) => setCount(data.total));
     }, 5000);
