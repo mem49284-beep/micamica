@@ -1,6 +1,6 @@
 // pages/api/coin.js
 
-let total = 0; // stores coins (resets when server restarts)
+let total = 0; // stores coins (resets on server restart)
 
 export default function handler(req, res) {
   if (req.method === "GET") {
