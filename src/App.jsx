@@ -5,7 +5,7 @@ function App() {
 
   // Fetch latest coin total from backend
   useEffect(() => {
-    fetch("https://coin-dashboard-new.vercel.app/api/data")
+    fetch("https://micamica-3xrzngskd-coldies-projects.vercel.app/api/data")
       .then((res) => res.json())
       .then((data) => {
         setCount(data.total);
