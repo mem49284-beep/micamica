@@ -24,7 +24,7 @@ function App() {
 
   // Reset function
   const handleReset = async () => {
-    await fetch("https://micamica-3xrzngskd-coldies-projects.vercel.app/api/data", {
+    await fetch("https://micamica.vercel.app/api/data", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ coinCount: -count }), // subtract current total
