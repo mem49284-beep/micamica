@@ -1,3 +1,4 @@
+
 let total = 0;
 
 export default async function handler(req, res) {
@@ -52,3 +53,4 @@ export default async function handler(req, res) {
     res.status(405).json({ error: Method ${req.method} Not Allowed });
   }
 }
+
