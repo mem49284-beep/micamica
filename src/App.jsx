@@ -7,7 +7,7 @@ export default function App() {
   // ✅ Fetch total from API
   const fetchTotal = async () => {
     try {
-      const res = await fetch("https://micamica-574wsktrk-coldies-projects.vercel.app/api/coin");
+      const res = await fetch("https://micamica-c6ord9qs5-coldies-projects.vercel.app/api/coin");
       if (!res.ok) throw new Error("Failed to fetch");
       const data = await res.json();
       setTotal(data.total);
@@ -19,7 +19,7 @@ export default function App() {
   // ✅ Reset counter
   const resetTotal = async () => {
     try {
-      const res = await fetch("https://micamica-574wsktrk-coldies-projects.vercel.app/api/coin", {
+      const res = await fetch("https://micamica-c6ord9qs5-coldies-projects.vercel.app/api/coin", {
         method: "DELETE",
       });
       if (!res.ok) throw new Error("Failed to reset");
