@@ -1,28 +1,31 @@
-let coinCount = 0; // store coin count in memory (resets on redeploy)
+// pages/api/coin.js
+
+let total = 0; // stores coins (resets when server restarts)
 
 export default function handler(req, res) {
-  if (req.method === 'POST') {
-    try {
-      const { coinCount: newCoins } = req.body;
-
-      if (typeof newCoins !== "number") {
-        return res.status(400).json({ error: "coinCount must be a number" });
-      }
-
-      coinCount += newCoins; // update count
-      console.log("Received coin count:", newCoins, " Total:", coinCount);
-
-      return res.status(200).json({ message: "Coin count updated", total: coinCount });
-    } catch (error) {
-      return res.status(500).json({ error: "Error processing request" });
-    }
+  if (req.method === "GET") {
+    // ✅ Get current total
+    res.status(200).json({ total });
   } 
   
-  else if (req.method === 'GET') {
-    return res.status(200).json({ total: coinCount });
+  else if (req.method === "POST") {
+    // ✅ Add coin (Arduino sends { value: 1 })
+    const { value } = req.body || {};
+    if (typeof value !== "number") {
+      return res.status(400).json({ error: "Invalid coin value" });
+    }
+    total += value;
+    res.status(200).json({ total });
+  } 
+  
+  else if (req.method === "DELETE") {
+    // ✅ Reset to 0
+    total = 0;
+    res.status(200).json({ total });
   } 
   
   else {
-    return res.status(405).json({ message: "Method not allowed" });
+    res.setHeader("Allow", ["GET", "POST", "DELETE"]);
+    res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 }

@@ -4,7 +4,7 @@ import "./index.css";
 export default function App() {
   const [total, setTotal] = useState(0);
 
-  // ✅ Fetch total coins from API
+  // ✅ Fetch total from API
   const fetchTotal = async () => {
     try {
       const res = await fetch("https://micamica.vercel.app/api/coin");
@@ -16,7 +16,7 @@ export default function App() {
     }
   };
 
-  // ✅ Reset total on API
+  // ✅ Reset counter
   const resetTotal = async () => {
     try {
       const res = await fetch("https://micamica.vercel.app/api/coin", {
@@ -31,12 +31,9 @@ export default function App() {
   };
 
   useEffect(() => {
-    fetchTotal(); // fetch once on load
-
-    // fetch every 2 seconds
+    fetchTotal();
     const interval = setInterval(fetchTotal, 2000);
-
-    return () => clearInterval(interval); // cleanup
+    return () => clearInterval(interval);
   }, []);
 
   return (
